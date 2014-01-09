@@ -4,10 +4,17 @@ window.NewReader = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    var feeds = new NewReader.Collections.Feeds();
+    var that = this;
+    feeds.fetch({
+      success: function() {
+        new NewReader.Routers.Feeds( $('#content'), feeds );
+        Backbone.history.start();
+      }
+    });
   }
 };
 
-$(document).ready(function(){
+$(document).ready(function() {
   NewReader.initialize();
 });
