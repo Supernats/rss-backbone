@@ -1,0 +1,10 @@
+<h1>Feeds</h1>
+<ul>
+<% feeds.each(function (feed) { %>
+  <li>
+    <a href="#" class="feed-link" data-id="<%= feed.id %>">
+      <%= feed.escape('title') %>
+    </a>
+  </li>
+<% }); %>
+</ul>
