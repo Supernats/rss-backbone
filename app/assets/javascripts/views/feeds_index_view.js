@@ -2,7 +2,7 @@ NewReader.Views.FeedsIndexView = Backbone.View.extend({
   template: JST["feeds/index"],
 
   events: {
-    "click a.feed-link": "show"
+    "click a.feed-link": "clickLink"
   },
 
   render: function() {
@@ -12,10 +12,10 @@ NewReader.Views.FeedsIndexView = Backbone.View.extend({
     return this;
   },
 
-  show: function(event) {
+  clickLink: function(event) {
     event.preventDefault();
     var link = $(event.currentTarget);
     var feedId = link.attr("data-id");
-
+    Backbone.history.navigate("feeds/" + feedId, { trigger: true });
   }
 });

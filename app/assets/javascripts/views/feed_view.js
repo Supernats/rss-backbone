@@ -13,6 +13,6 @@ NewReader.Views.FeedView = Backbone.View.extend({
   },
 
   refresh: function(event) {
-    this.model.fetch({ success: this.render.bind(this) });
+    this.model.get('entries').fetch({ success: this.render.bind(this) });
   }
 });

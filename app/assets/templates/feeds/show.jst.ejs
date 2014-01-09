@@ -1,3 +1,11 @@
-<h1><%= feed.escape('title') %></h1>
+<h1><%= feed.get('title') %></h1>
 <p><%= feed.escape('url') %></p>
+<% feed.get('entries').each(function(entry) { %>
+  <li>
+    <a href="<%= entry.get('link') %>">
+      <%= entry.get('title') %>
+    </a>
+    Published: <%= entry.get('published_at') %>
+  </li>
+<% }); %>
 <button class="refresh">Refresh Feed!</button>

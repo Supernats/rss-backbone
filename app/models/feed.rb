@@ -23,6 +23,7 @@ class Feed < ActiveRecord::Base
   def reload
     # reloads entries
     begin
+      puts "RELOAD STARTED"
       feed_data = SimpleRSS.parse(open(url))
       self.title = feed_data.title
       save!
